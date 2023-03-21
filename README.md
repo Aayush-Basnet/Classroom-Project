@@ -1,5 +1,5 @@
 # Classroom-Project
-Classroom using Flutter (In progress)
+Classroom using Flutter 
 
 ## Hello Welcome to classroom
 ### Please Login with your username and password
