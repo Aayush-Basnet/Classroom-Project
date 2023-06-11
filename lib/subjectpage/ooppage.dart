@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 //import 'package:webview_flutter/webview_flutter.dart';
+//import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+//import 'package:webview_flutter/webview_flutter.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class ooppage extends StatefulWidget {
@@ -11,7 +13,8 @@ class ooppage extends StatefulWidget {
 }
 
 class _ooppageState extends State<ooppage> {
-  late InAppWebViewController _controller;
+  // late InAppWebViewController _controller;
+  InAppWebViewController? _controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +24,16 @@ class _ooppageState extends State<ooppage> {
           onWebViewCreated: (InAppWebViewController controller) {
             _controller = controller;
             if (widget.chapterID == "Ch 1") {
-              _loadoophtmlch1();
+              _loadoophtmlch1(_controller!);
             } else if (widget.chapterID == "Ch 2") {
-              _loadoophtmlch2();
+              _loadoophtmlch2(_controller!);
             }
           },
         ));
   }
 }
 
+/*
 _loadoophtmlch1() async {
   String fileText = await rootBundle.loadString("assets/oopch1.html");
   _ooppageState()._controller.loadData(
@@ -38,7 +42,8 @@ _loadoophtmlch1() async {
         encoding: "UTF-8",
       );
 }
-
+*/
+/*
 _loadoophtmlch2() async {
   String fileText = await rootBundle.loadString("assets/oopch2.html");
   _ooppageState()._controller.loadData(
@@ -46,4 +51,22 @@ _loadoophtmlch2() async {
         mimeType: 'text/html',
         encoding: 'UTF-8',
       );
+}
+*/
+_loadoophtmlch1(InAppWebViewController controller) async {
+  String fileText = await rootBundle.loadString("assets/oopch1.html");
+  controller.loadData(
+    data: fileText,
+    mimeType: 'text/html',
+    encoding: "UTF-8",
+  );
+}
+
+_loadoophtmlch2(InAppWebViewController controller) async {
+  String fileText = await rootBundle.loadString("assets/oopch2.html");
+  controller.loadData(
+    data: fileText,
+    mimeType: 'text/html',
+    encoding: 'UTF-8',
+  );
 }
