@@ -1,5 +1,5 @@
 # Classroom-Project
-Classroom using Flutter 
+flutter_classroom_ui
 
 ## Hello Welcome to classroom
 ## Page 1: Login Page
